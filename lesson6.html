@@ -1,0 +1,109 @@
+<html>
+<head>
+<title> Lesson 6 </title>
+<script>
+// Question 1
+
+String.prototype.filter = function (words) {
+    
+    let newstring = this;
+    for(let i=0;i<words.length;i++)
+    {
+        newstring = newstring.replace(words[i],'');
+    }
+    return newstring;
+};
+console.log("This house is not nice!".filter(['not']));
+
+// Question 2
+
+Array.prototype.bubbleSort = function () {
+    
+    var swapp;
+    var n = this.length-1;
+    var x=this;
+    do {
+        swapp = false;
+        for (var i=0; i < n; i++)
+        {
+            if (x[i] > x[i+1])
+            {
+               var temp = x[i];
+               x[i] = x[i+1];
+               x[i+1] = temp;
+               swapp = true;
+            }
+        }
+        n--;
+    } while (swapp);
+ return x; 
+};
+console.log([2,6,3,7,4,8,5].bubbleSort());
+
+// Question 3
+
+function Person(fName, lName) {
+    this.firstName = fName;
+    this.lastName = lName;
+  }
+
+  function Teacher(fName, lName, subject) {
+    Person.call(this, fName, lName);
+    this.teach = function (){
+        console.log(fName + " " + lName + " is now teaching " + subject);
+    }
+  }
+
+  var techer1 = new Teacher("John", "Smith", "Maths");
+  techer1.teach();
+
+  //-------------------------------------------------------------------
+
+  Teacher.prototype = Object.create(Person.prototype);
+
+  Teacher.prototype.teach = function (subject) {
+    console.log(this.fName + " " + this.lName + " is now teaching " + subject);
+  }
+
+  // Question 4
+
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greeting = function (){
+        console.log("Greetings, my name is "+ name +" and I am "+ age +" years old.");
+    }
+
+    this.salute = function () {
+        console.log("Good morning!, and in case I dont see you, good afternoon, good evening and good night!");
+    }
+  }
+
+  function Student(name, age, major) {
+    Person.call(this, name, age);
+    
+    this.greeting = function (){
+        console.log("Hey, my name is " + name + " and I am studying " + major);
+    }
+  }
+
+  function Professor(name, age, department) {
+    Person.call(this, name, age);
+    
+    this.greeting = function (){
+        console.log("Good day, my name is "+name+" and I am in the "+department+" department.");
+    }
+  }
+  
+  var stu = new Student("John", 28, "WAP");
+  stu.greeting();
+
+  var prof = new Professor("John", 28, "WAP");
+  prof.greeting();
+
+</script>
+</head>
+<body>
+Take a look in my scripts !!
+</body>
+</html>
