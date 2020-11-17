@@ -1,0 +1,24 @@
+body {
+    background-color: #CCCCFF;
+    font-size: 14px;
+}
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+textarea {
+    width: 90%;
+    height: 400px;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+fieldset {
+    border: 5px solid black;
+    padding: 15px;
+    height: 40px;
+    width: 100px;
+    display: inline;
+}

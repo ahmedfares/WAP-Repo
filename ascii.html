@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <script type="text/javascript" src="ascii.js"></script>
+        <script type="text/javascript" src="animation.js"></script>
+        <link rel="stylesheet" href="ascii.css">
+        <title>ASCII</title>
+    </head>
+    <body>
+        <h1>CSE 190 M ASCII Animation Viewer</h1>
+        <div style="text-align: center;"><textarea name="viewer" cols="80" rows="20"></textarea></div>
+        <div style="text-align: center;margin-top: 20px;">
+            <fieldset>
+                <legend>Play Controls</legend>
+                <button onclick="startAnim()">Start</button>
+                <button id="stopBtn" onclick="stopAnim()" disabled>Stop</button>
+            </fieldset>
+            <fieldset>
+                <legend>Animation</legend>
+                <select name="anims" id="anims">
+                    <option value="Blank">Blank</option>
+                  </select>
+            </fieldset>
+            <fieldset>
+                <legend>Size</legend>
+                <select name="size" id="size" onchange="changeFont(this.value)">
+                    <option value="Tiny">Tiny</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Large">Large</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Speed</legend>
+                <input type="checkbox" name="turbo" onclick="changeSpeed(this.value)" value="turbo"/> turbo
+            </fieldset>
+        </div>
+        
+    </body>
+</html>
