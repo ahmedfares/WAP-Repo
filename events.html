@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>
+            Events
+        </title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        
+        $(function(){
+
+            var defaultWidth = 50;
+            var defaultGrowthRate = 250;
+            var defaultGrowthWidth = 10;
+            var numOfCircles = 1;
+            runCircle(defaultWidth,defaultGrowthRate,defaultGrowthWidth,numOfCircles);
+            
+
+            $('.circle').click(function(){
+                $(this).hide();
+            });
+
+            $('button').click(function(){
+                defaultWidth = $('#width').val();
+                defaultGrowthRate = $('#growthRate').val();
+                defaultGrowthWidth = $('#growthWidth').val();
+                numOfCircles = $('#numOfCircles').val();
+                runCircle(defaultWidth,defaultGrowthRate,defaultGrowthWidth,numOfCircles);
+            });
+
+            function runCircle(defaultWidth,defaultGrowthRate,defaultGrowthWidth,numOfCircles){
+
+                $('.circle').remove();
+                for(let i=0;i<numOfCircles;i++)
+                {
+                    $('body').append('<div class="circle"></div>');
+                }
+
+                $('.circle').css({
+                backgroundColor: 'red',
+                 width: defaultWidth+'px',
+                 height: defaultWidth+'px',
+                 borderRadius: defaultWidth+'px'
+            });
+
+            setInterval(function(){
+                
+                    $('.circle').css({
+                    width: '+='+defaultGrowthWidth+'px',
+                    height: '+='+defaultGrowthWidth+'px',
+                    borderRadius: '+='+defaultGrowthWidth+'px'
+                });
+            },defaultGrowthRate);
+            }
+
+        });
+        </script>
+    </head>
+    <body>
+        
+        <div>
+            Width: <input id='width' type="text" >
+        </div>
+        <div>
+            growth rate: <input id='growthRate' type="text" >
+        </div>
+        <div>
+            growth width: <input id='growthWidth' type="text" >
+        </div>
+        <div style="margin-bottom: 50px;"> 
+            number of circles: <input id='numOfCircles' type="text" >
+        </div>
+        <button>Start</button>
+    </body>
+</html>
